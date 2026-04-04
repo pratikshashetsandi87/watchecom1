@@ -1,4 +1,4 @@
-const { default: slugify } = require("slugify");
+const slugify = require('slugify');
 const CategoryModel = require("../Model/Category.model");
 
 const createCategoryController = async (req, res) => {
@@ -20,7 +20,7 @@ const createCategoryController = async (req, res) => {
     // Create new category
     const category = await new CategoryModel({
       name,
-      slug: slugify(name),
+slug: slugify(name).toLowerCase(),
     }).save();
 
     res.status(201).json({
@@ -48,7 +48,7 @@ const updateCateogryController = async (req,res) =>{
         const {id} = req.params;
         const category = await CategoryModel.findByIdAndUpdate(
             id,
-            {name,slug:slugify(name)},
+{name,slug:slugify(name).toLowerCase()},
             {new:true}
         );
         res.status(200).send({
