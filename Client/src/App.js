@@ -20,7 +20,7 @@ import Products from './Pages/Admin/Products';
 import SearchU from './Pages/Search';
 import ProductDetails from './Pages/ProductDetails';
 import Categories from './Pages/Categories';
-import CategoryProduct from './Pages/CategoryProduct';
+// import CategoryProduct from './Pages/CategoryProduct';
 import CartPage from './Pages/Cartpage';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -41,7 +41,7 @@ function App() {
         <Route path='/product/:slug' element={<ProductDetails />} />
 
         <Route path="/categories" element={<Categories />} />
-        <Route path="/category/:slug" element={<CategoryProduct />} />
+        <Route path="/category/:slug" element={<ProductDetails />} />
         <Route path='cart' element={<CartPage />} />
 
 
