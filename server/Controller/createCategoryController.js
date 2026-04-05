@@ -38,7 +38,8 @@ slug: slugify(name).toLowerCase(),
   }
 };
 
-module.exports = { createCategoryController };
+// Removed incomplete exports
+
 
 
 //updatcategory
@@ -123,4 +124,10 @@ const getAllCategoriesController = async (req, res) => {
     }
   };
   
-module.exports = { createCategoryController, updateCateogryController,getAllCategoriesController,singleCategoryController,deleteCategoryCOntroller }
+module.exports = { 
+  createCategoryController, 
+  updateCateogryController, 
+  getAllCategoriesController, 
+  singleCategoryController, 
+  deleteCategoryCOntroller 
+};

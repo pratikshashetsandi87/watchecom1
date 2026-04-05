@@ -1,32 +1,30 @@
-# ECOM Frontend Fixes - BLACKBOXAI
+# Fix 404 API Errors - Progress Tracker
 
-Current progress: Step 4/8 ✅
+## Status: In Progress ⏳
 
-## Tasks:
+### [✅] Step 1: Fix Backend Exports & CORS (Critical)
+- [✅] createCategoryController.js: Fix exports  
+- [✅] index.js: Add CORS origins (frontend2.render), logging
 
-### 1. 📋 Create TODO.md 
-✅ Done
+### [✅] Step 2: Frontend API Consistency
+- [✅] Home.js: Import/use api.js
+- [✅] UseCategory.js: Import/use api.js  
+- [ ] CreateProduct.js: Import/use api.js
+- [✅] CreateCategory.js: Import/use api.js
+- [✅] Products.js: Import/use api.js
 
-### 2. 🏷️ Categories 
-✅ Fixed
+### [ ] Step 3: Test Locally
+- Backend: `cd server && npm start`
+- Frontend: `cd Client && npm start`
 
-### 3. 🖼️ Product cards 
-✅ Responsive mobile/desktop
+### [ ] Step 4: Deploy & Verify
+- Push to Git → Auto-deploy Render
+- Check https://watchecom-backend.onrender.com/api/auth/category/getall-category
+- Frontend console clean
 
-### 4. 📏 Home gap 
-✅ Banner margin 0
+### [ ] Step 5: Seed Data (if DB empty)
+- Login admin → Create categories/products
 
-### 5. ⚙️ Footer fixed
-✅ Created Footer.css + imported
+**Next Action:** Backend fixes first.
 
-### 6. 🛒 Cart items fix
-- [ ] Read Cartpage.js + Context/Cart.js
-
-### 7. 👤 Admin/User fix
-- [ ] Read dashboards
-
-### 8. ✅ Test
-- [ ] \`cd Client && npm start\`
-
-**Next: Step 6 - Cart**
 

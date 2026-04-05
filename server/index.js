@@ -18,8 +18,9 @@ const app = express();
 app.use(
   cors({
     origin: [
-      "http://localhost:3000",
+"http://localhost:3000",
       "http://localhost:3001",
+      "https://watchecom-frontend2.onrender.com",
       "https://watchecom-frontend2.onrender.com"
     ],
     credentials: true,

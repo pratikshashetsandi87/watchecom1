@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import axios from 'axios';
+import api from '../../../api.js';
 import Layout from '../../Layout/Layout';
 import AdminMenu from '../../Layout/AdminMenu';
 import CategoryForm from '../../component/Form/CategoryForm';
@@ -20,9 +20,8 @@ function CreateCategory() {
       const token = JSON.parse(localStorage.getItem('auth'))?.token;
       if (!token) throw new Error('No token found');
 
-      const response = await axios.post(
-        // ✅ FIXED URL
-        'https://watchecom-backend.onrender.com/api/auth/category/create-category',
+      const response = await api.post(
+        '/category/create-category',
         { name },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -47,9 +46,8 @@ function CreateCategory() {
       const token = JSON.parse(localStorage.getItem('auth'))?.token;
       if (!token) throw new Error('No token found');
 
-      const { data } = await axios.get(
-        // ✅ FIXED URL
-        'https://watchecom-backend.onrender.com/api/auth/category/getall-category',
+      const { data } = await api.get(
+        '/category/getall-category',
         { headers: { Authorization: `Bearer ${token}` } }
       );
 
@@ -71,9 +69,8 @@ function CreateCategory() {
     try {
       const token = JSON.parse(localStorage.getItem('auth'))?.token;
 
-      const { data } = await axios.put(
-        // ✅ FIXED URL
-        `https://watchecom-backend.onrender.com/api/auth/category/update-category/${selected._id}`,
+      const { data } = await api.put(
+        `/category/update-category/${selected._id}`,
         { name: updatedName },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -93,9 +90,8 @@ function CreateCategory() {
     try {
       const token = JSON.parse(localStorage.getItem('auth'))?.token;
 
-      const { data } = await axios.delete(
-        // ✅ FIXED URL
-        `https://watchecom-backend.onrender.com/api/auth/category/delete-category/${id}`,
+      const { data } = await api.delete(
+        `/category/delete-category/${id}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
 

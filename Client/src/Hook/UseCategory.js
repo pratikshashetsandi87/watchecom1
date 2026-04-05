@@ -1,14 +1,12 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import api from "../api.js";
 
 export default function useCategory() {
   const [categories, setCategories] = useState([]);
 
   const getCategories = async () => {
     try {
-      const { data } = await axios.get(
-        "https://watchecom-backend.onrender.com/api/auth/category/getall-category"
-      );
+      const { data } = await api.get("/category/getall-category");
 
       console.log("Fetched categories:", data);
 

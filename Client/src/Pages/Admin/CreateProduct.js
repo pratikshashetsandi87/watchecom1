@@ -3,7 +3,7 @@ import Layout from '../../Layout/Layout';
 import AdminMenu from '../../Layout/AdminMenu';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import axios from 'axios';
+import api from '../../api.js';
 import { Select } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import slugify from 'slugify';

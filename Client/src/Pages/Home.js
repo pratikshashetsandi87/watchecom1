@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import api from "../api.js";
 import { Checkbox, Radio, Input } from "antd";
 import { Prices } from "../Context/Prices";
 import Layout from "../Layout/Layout";
@@ -34,9 +34,7 @@ const HomePage = () => {
 
   const getAllCategory = async () => {
     try {
-      const { data } = await axios.get(
-        "https://watchecom-backend.onrender.com/api/auth/category/getall-category"
-      );
+      const { data } = await api.get("/category/getall-category");
 
       // ✅ FIX
       if (data.success) setCategories(data?.categories || []);
@@ -49,9 +47,7 @@ const HomePage = () => {
     try {
       setLoading(true);
 
-      const { data } = await axios.get(
-        "https://watchecom-backend.onrender.com/api/auth/product/getall-product"
-      );
+      const { data } = await api.get("/product/getall-product");
 
       // ✅ FIX
       setProducts(data?.products || []);
@@ -64,9 +60,7 @@ const HomePage = () => {
 
   const getTotal = async () => {
     try {
-      const { data } = await axios.get(
-        "https://watchecom-backend.onrender.com/api/auth/product/product-count"
-      );
+      const { data } = await api.get("/product/product-count");
 
       setTotal(data?.total || 0);
     } catch (error) {
@@ -95,8 +89,7 @@ const HomePage = () => {
 
   const filterProduct = async () => {
     try {
-      const { data } = await axios.post(
-        "https://watchecom-backend.onrender.com/api/auth/product/product-filters",
+      const { data } = await api.post("/product/product-filters",
         { checked, radio, searchQuery }
       );
 

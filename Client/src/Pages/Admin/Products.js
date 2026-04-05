@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Layout from "../../Layout/Layout";
 import AdminMenu from "../../Layout/AdminMenu";
-import axios from "axios";
+import api from "../../../api.js";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
@@ -13,10 +13,7 @@ function Products() {
 
   const getAllProducts = async () => {
     try {
-      const { data } = await axios.get(
-        // ✅ FIXED URL
-        "https://watchecom-backend.onrender.com/api/auth/product/getall-product"
-      );
+      const { data } = await api.get("/product/getall-product");
 
       setProducts(data?.products || []);
     } catch (error) {
@@ -39,10 +36,7 @@ function Products() {
 
   const handleDelete = async (productId) => {
     try {
-      await axios.delete(
-        // ✅ FIXED URL
-        `https://watchecom-backend.onrender.com/api/auth/product/delete-product/${productId}`
-      );
+      await api.delete(`/product/delete-product/${productId}`);
 
       setProducts(products.filter((p) => p._id !== productId));
       toast.success("Product deleted successfully");
